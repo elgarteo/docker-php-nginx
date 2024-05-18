@@ -48,6 +48,7 @@ RUN chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx
 
 # Create symlink for php
 RUN ln -s /usr/bin/php83 /usr/bin/php
+RUN echo -e "[safe]\n\tdirectory = /var/www/html" > /.gitconfig
 
 # Switch to use a non-root user from here on
 USER nobody
