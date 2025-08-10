@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.21
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.3 based on Alpine Linux."
+LABEL Description="Lightweight container with Nginx 1.26 & PHP 8.4 based on Alpine Linux."
 # Setup document root
 WORKDIR /var/www/html
 
@@ -29,6 +29,8 @@ RUN apk add --no-cache \
   php84-xmlwriter \
   supervisor \
   git
+
+RUN ln -s /usr/bin/php84 /usr/bin/php
 
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
